@@ -431,7 +431,7 @@ function HomePage() {
       <Section className="mt-24">
         <div className="flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row sm:items-center">
           <span>© {new Date().getFullYear()} Ольга Владимирец</span>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center gap-5">
             <a
               href="https://t.me/ovladimirets_ai_prompt"
               target="_blank"
@@ -448,6 +448,9 @@ function HomePage() {
             >
               ВКонтакте
             </a>
+            <Link to="/privacy" className="transition hover:text-foreground">
+              Политика конфиденциальности
+            </Link>
           </div>
         </div>
       </Section>
