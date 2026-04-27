@@ -21,4 +21,29 @@ export const projects: Project[] = [
     tag: "Сайт",
     url: "https://sole-care-expert.lovable.app/",
   },
+  {
+    slug: "yoga-studio-landing",
+    title: "Лендинг для студии йоги — расписание и запись на занятия",
+    tag: "Лендинг",
+  },
+  {
+    slug: "beauty-booking",
+    title: "Онлайн-сервис записи в салон красоты",
+    tag: "Онлайн-сервис",
+  },
+  {
+    slug: "tg-bot-orders",
+    title: "Telegram-бот для приёма заявок кондитера",
+    tag: "Бот",
+  },
+  {
+    slug: "coach-personal-site",
+    title: "Персональный сайт коуча с блогом и формой консультации",
+    tag: "Сайт",
+  },
+  {
+    slug: "course-promo",
+    title: "Промо-страница авторского онлайн-курса",
+    tag: "Лендинг",
+  },
 ];
