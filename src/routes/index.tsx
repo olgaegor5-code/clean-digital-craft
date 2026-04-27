@@ -135,78 +135,6 @@ function QrCard({
   );
 }
 
-function BriefForm() {
-  const [name, setName] = useState("");
-  const [task, setTask] = useState("");
-  const [agree, setAgree] = useState(false);
-
-  const canSend = name.trim().length > 0 && task.trim().length > 0 && agree;
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!canSend) return;
-    const text = `Здравствуйте! Меня зовут ${name.trim()}.\n\nЗадача: ${task.trim()}`;
-    const url = `https://t.me/ovladimirets_ai_prompt?text=${encodeURIComponent(text)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="mt-10 space-y-5">
-      <div>
-        <label htmlFor="brief-name" className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          Как вас зовут
-        </label>
-        <input
-          id="brief-name"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Имя"
-          className="mt-2 w-full rounded-2xl border border-border bg-background px-5 py-3.5 text-base text-foreground placeholder:text-muted-foreground/60 transition focus:border-foreground/40 focus:outline-none"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="brief-task" className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          О задаче
-        </label>
-        <textarea
-          id="brief-task"
-          value={task}
-          onChange={(e) => setTask(e.target.value)}
-          placeholder="Коротко опишите, что нужно сделать"
-          rows={4}
-          className="mt-2 w-full resize-none rounded-2xl border border-border bg-background px-5 py-3.5 text-base text-foreground placeholder:text-muted-foreground/60 transition focus:border-foreground/40 focus:outline-none"
-        />
-      </div>
-
-      <label className="flex cursor-pointer items-start gap-3 text-sm text-muted-foreground">
-        <input
-          type="checkbox"
-          checked={agree}
-          onChange={(e) => setAgree(e.target.checked)}
-          className="mt-1 h-4 w-4 shrink-0 cursor-pointer accent-foreground"
-        />
-        <span>
-          Я согласен(на) на обработку персональных данных в соответствии с{" "}
-          <Link to="/privacy" className="text-foreground underline-offset-4 hover:underline">
-            Политикой конфиденциальности
-          </Link>
-          .
-        </span>
-      </label>
-
-      <button
-        type="submit"
-        disabled={!canSend}
-        className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition hover:bg-foreground/90 disabled:cursor-not-allowed disabled:opacity-40"
-      >
-        Отправить в Telegram
-      </button>
-    </form>
-  );
-}
-
 function HomePage() {
   return (
     <main className="pb-32">
@@ -467,18 +395,16 @@ function HomePage() {
                 Напишите мне — обсудим задачу и подберём решение.
               </h2>
               <p className="mt-6 text-muted-foreground">
-                Я в Telegram и ВКонтакте — пишите, отвечу и обсудим вашу задачу.
-                Для каждой ссылки есть QR-код — удобно показать с экрана.
+                Самый быстрый способ — написать мне в личные сообщения в Telegram или ВКонтакте.
+                А подписаться на канал и группу можно по QR-кодам справа.
               </p>
 
-              <BriefForm />
-
-              <div className="mt-8 flex flex-wrap gap-3 border-t border-border pt-8">
+              <div className="mt-10 flex flex-wrap gap-3">
                 <a
                   href="https://t.me/ovladimirets_ai_prompt"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-medium text-foreground transition hover:bg-secondary"
+                  className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition hover:bg-foreground/90"
                 >
                   Написать в Telegram
                 </a>
@@ -486,7 +412,7 @@ function HomePage() {
                   href="https://vk.com/promt_by_olga"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-medium text-foreground transition hover:bg-secondary"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3.5 text-sm font-medium text-foreground transition hover:bg-secondary"
                 >
                   Написать ВКонтакте
                 </a>
@@ -494,8 +420,8 @@ function HomePage() {
             </div>
 
             <div className="flex flex-wrap items-start justify-center gap-10 lg:col-span-7 lg:justify-end">
-              <QrCard label="Telegram" value="https://t.me/ovladimirets_ai_prompt" />
-              <QrCard label="ВКонтакте" value="https://vk.com/promt_by_olga" />
+              <QrCard label="Канал в Telegram" value="https://t.me/ovladimirets_ai_prompt" />
+              <QrCard label="Группа ВКонтакте" value="https://vk.com/promt_by_olga" />
             </div>
           </div>
         </motion.div>
