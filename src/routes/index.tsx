@@ -223,7 +223,7 @@ function HomePage() {
             variants={fadeUp}
             className="lg:col-span-7 flex flex-col justify-center"
           >
-            <Eyebrow>цифровые решения · с 2018</Eyebrow>
+            <Eyebrow>цифровые решения</Eyebrow>
             <h1 className="mt-6 text-[clamp(2.5rem,6vw,5.25rem)] leading-[1.02] tracking-[-0.03em] text-balance">
               Ольга
               <br />
