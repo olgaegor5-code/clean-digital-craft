@@ -68,11 +68,6 @@ function PortraitPlaceholder() {
         className="absolute inset-0 h-full w-full object-cover"
         loading="eager"
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-      <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-white/85">
-        <span>Ольга Владимирец</span>
-        <span>портфолио · 2025</span>
-      </div>
     </div>
   );
 }
