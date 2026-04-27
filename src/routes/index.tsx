@@ -471,22 +471,24 @@ function HomePage() {
                 Для каждой ссылки есть QR-код — удобно показать с экрана.
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-3">
+              <BriefForm />
+
+              <div className="mt-8 flex flex-wrap gap-3 border-t border-border pt-8">
                 <a
                   href="https://t.me/ovladimirets_ai_prompt"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition hover:bg-foreground/90"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-medium text-foreground transition hover:bg-secondary"
                 >
-                  Telegram
+                  Написать в Telegram
                 </a>
                 <a
                   href="https://vk.com/promt_by_olga"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3.5 text-sm font-medium text-foreground transition hover:bg-secondary"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-medium text-foreground transition hover:bg-secondary"
                 >
-                  ВКонтакте
+                  Написать ВКонтакте
                 </a>
               </div>
             </div>
