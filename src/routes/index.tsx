@@ -102,29 +102,18 @@ const process = [
 
 function QrCard({
   label,
-  storageKey,
-  placeholder,
-  defaultValue = "",
+  value,
 }: {
   label: string;
-  storageKey: string;
-  placeholder: string;
-  defaultValue?: string;
+  value: string;
 }) {
-  const [value, setValue] = useState(defaultValue);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const saved = typeof window !== "undefined" ? localStorage.getItem(storageKey) : null;
-    if (saved) setValue(saved);
-  }, [storageKey]);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") localStorage.setItem(storageKey, value);
     if (canvasRef.current) {
       QRCode.toCanvas(
         canvasRef.current,
-        value || placeholder,
+        value,
         {
           width: 240,
           margin: 1,
@@ -134,65 +123,14 @@ function QrCard({
         () => {},
       );
     }
-  }, [value, placeholder, storageKey]);
-
-  const download = () => {
-    if (!value) return;
-    QRCode.toDataURL(
-      value,
-      { width: 1024, margin: 2, color: { dark: "#1C1C1C", light: "#F7F7F5" } },
-      (_err, url) => {
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `${label.toLowerCase()}-qr.png`;
-        a.click();
-      },
-    );
-  };
+  }, [value]);
 
   return (
-    <div className="flex flex-col gap-5 rounded-[24px] bg-card p-6 shadow-soft sm:p-8">
-      <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-foreground">{label}</span>
-        <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">qr</span>
-      </div>
-
+    <div className="flex flex-col items-center gap-4">
       <div className="flex items-center justify-center rounded-2xl bg-secondary/60 p-6">
-        <canvas ref={canvasRef} className={value ? "" : "opacity-30"} />
+        <canvas ref={canvasRef} />
       </div>
-
-      <input
-        type="url"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder={placeholder}
-        className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 focus:border-foreground/40 focus:outline-none"
-      />
-
-      <div className="flex flex-wrap gap-2">
-        <a
-          href={value || "#"}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-disabled={!value}
-          onClick={(e) => !value && e.preventDefault()}
-          className={`inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-medium transition ${
-            value
-              ? "bg-foreground text-background hover:bg-foreground/90"
-              : "bg-secondary text-muted-foreground cursor-not-allowed"
-          }`}
-        >
-          Открыть {label}
-        </a>
-        <button
-          type="button"
-          onClick={download}
-          disabled={!value}
-          className="inline-flex items-center justify-center rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-medium text-foreground transition hover:bg-secondary disabled:opacity-40"
-        >
-          Скачать PNG
-        </button>
-      </div>
+      <span className="text-sm font-medium text-foreground">{label}</span>
     </div>
   );
 }
