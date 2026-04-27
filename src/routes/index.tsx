@@ -225,7 +225,7 @@ function HomePage() {
           >
             <Eyebrow>цифровые решения</Eyebrow>
             <h1 className="mt-6 text-[clamp(2rem,5vw,4.5rem)] leading-[1.05] tracking-[-0.03em] text-balance whitespace-nowrap">
-              Ольга <span className="italic text-foreground/85">Владимирец</span>
+              Ольга <span className="italic text-foreground/85 border-none">Владимирец</span>
             </h1>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground text-pretty">
               Создаю цифровые решения для бизнеса, которые помогают
