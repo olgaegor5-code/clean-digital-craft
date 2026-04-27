@@ -401,7 +401,7 @@ function HomePage() {
 
               <div className="mt-10 flex flex-wrap gap-3">
                 <a
-                  href="https://t.me/ovladimirets_ai_prompt"
+                  href="https://t.me/Olka_Vladimirets"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition hover:bg-foreground/90"
@@ -409,7 +409,7 @@ function HomePage() {
                   Написать в Telegram
                 </a>
                 <a
-                  href="https://vk.com/promt_by_olga"
+                  href="https://vk.com/olkavladimirets"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3.5 text-sm font-medium text-foreground transition hover:bg-secondary"
