@@ -419,19 +419,9 @@ function HomePage() {
               </div>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
-              <QrCard
-                label="Telegram"
-                storageKey="contact.tg"
-                placeholder="https://t.me/username"
-                defaultValue="https://t.me/ovladimirets_ai_prompt"
-              />
-              <QrCard
-                label="ВКонтакте"
-                storageKey="contact.vk"
-                placeholder="https://vk.com/username"
-                defaultValue="https://vk.com/promt_by_olga"
-              />
+            <div className="flex flex-wrap items-start justify-center gap-10 lg:col-span-7 lg:justify-end">
+              <QrCard label="Telegram" value="https://t.me/ovladimirets_ai_prompt" />
+              <QrCard label="ВКонтакте" value="https://vk.com/promt_by_olga" />
             </div>
           </div>
         </motion.div>
