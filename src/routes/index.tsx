@@ -2,6 +2,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import QRCode from "qrcode";
+import portraitImg from "@/assets/olga-portrait.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -61,26 +62,14 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 function PortraitPlaceholder() {
   return (
     <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[28px] bg-secondary shadow-float">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,oklch(0.96_0.006_80),transparent_55%),radial-gradient(circle_at_70%_80%,var(--greige),transparent_60%)]" />
-      <svg
-        viewBox="0 0 400 500"
-        className="absolute inset-0 h-full w-full"
-        preserveAspectRatio="xMidYMid slice"
-        aria-hidden
-      >
-        <defs>
-          <linearGradient id="silhouette" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="oklch(0.86 0.014 75)" />
-            <stop offset="100%" stopColor="oklch(0.92 0.011 75)" />
-          </linearGradient>
-        </defs>
-        <ellipse cx="200" cy="180" rx="62" ry="74" fill="url(#silhouette)" />
-        <path
-          d="M90 500 C 90 360, 140 290, 200 290 C 260 290, 310 360, 310 500 Z"
-          fill="url(#silhouette)"
-        />
-      </svg>
-      <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+      <img
+        src={portraitImg}
+        alt="Ольга Владимирец"
+        className="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+      <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-white/85">
         <span>Ольга Владимирец</span>
         <span>портфолио · 2025</span>
       </div>
