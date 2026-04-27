@@ -104,12 +104,14 @@ function QrCard({
   label,
   storageKey,
   placeholder,
+  defaultValue = "",
 }: {
   label: string;
   storageKey: string;
   placeholder: string;
+  defaultValue?: string;
 }) {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(defaultValue);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -455,13 +457,13 @@ function HomePage() {
                 Напишите мне — обсудим задачу и подберём решение.
               </h2>
               <p className="mt-6 text-muted-foreground">
-                Вставьте свои ссылки в поля справа — для каждой соберётся аккуратный
-                QR-код, который можно показать с экрана или скачать.
+                Я в Telegram и ВКонтакте — пишите, отвечу и обсудим вашу задачу.
+                Для каждой ссылки есть QR-код — удобно показать с экрана.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-3">
                 <a
-                  href="https://t.me/"
+                  href="https://t.me/ovladimirets_ai_prompt"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition hover:bg-foreground/90"
@@ -469,12 +471,12 @@ function HomePage() {
                   Telegram
                 </a>
                 <a
-                  href="https://vk.com/"
+                  href="https://vk.com/promt_by_olga"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3.5 text-sm font-medium text-foreground transition hover:bg-secondary"
                 >
-                  VK
+                  ВКонтакте
                 </a>
               </div>
             </div>
@@ -484,8 +486,14 @@ function HomePage() {
                 label="Telegram"
                 storageKey="contact.tg"
                 placeholder="https://t.me/username"
+                defaultValue="https://t.me/ovladimirets_ai_prompt"
               />
-              <QrCard label="VK" storageKey="contact.vk" placeholder="https://vk.com/username" />
+              <QrCard
+                label="ВКонтакте"
+                storageKey="contact.vk"
+                placeholder="https://vk.com/username"
+                defaultValue="https://vk.com/promt_by_olga"
+              />
             </div>
           </div>
         </motion.div>
@@ -495,7 +503,24 @@ function HomePage() {
       <Section className="mt-24">
         <div className="flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row sm:items-center">
           <span>© {new Date().getFullYear()} Ольга Владимирец</span>
-          <span className="font-display italic">Спокойные цифровые решения</span>
+          <div className="flex items-center gap-5">
+            <a
+              href="https://t.me/ovladimirets_ai_prompt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-foreground"
+            >
+              Telegram
+            </a>
+            <a
+              href="https://vk.com/promt_by_olga"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-foreground"
+            >
+              ВКонтакте
+            </a>
+          </div>
         </div>
       </Section>
     </main>
