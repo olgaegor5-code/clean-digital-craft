@@ -53,6 +53,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
     <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-muted-foreground">
       <span className="h-px w-6 bg-foreground/30" />
       {children}
+      <span className="h-px w-6 bg-foreground/30" />
     </span>
   );
 }
